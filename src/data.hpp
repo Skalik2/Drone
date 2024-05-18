@@ -11,8 +11,4 @@ struct SensorData {
     sf::Vector3f rotation = {0, 0, 0};
 };
 
-void runBluetoothThread(SensorData* dataPointer);
-
-inline std::thread bluetoothThread;
-
 #endif //SENSOR_DATA_HPP

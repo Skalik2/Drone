@@ -1,3 +1,5 @@
+#define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING 
+#define _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS
 #include "data.hpp"
 #include "horizon.hpp"
 #include "altimeter.hpp"
@@ -8,7 +10,6 @@
 int main() {
     // init here
     SensorData temp;
-    bluetoothThread = std::thread(runBluetoothThread, &temp);
     horizon.textureSprite.setPosition(SCREEN_RESOLUTION.x / 2, SCREEN_RESOLUTION.y / 1.5);
     altimeter.windowSprite.setPosition(420, 420);
 
@@ -42,8 +43,6 @@ int main() {
             }
         }
     }
-
-    bluetoothThread.join();
 
 
     return 0;

@@ -18,11 +18,11 @@ Altimeter::Altimeter() {
 }
 
 void Altimeter::update(const SensorData& data) {
-	arrowSprite.setRotation( (data.altitude * 18.f / 1000.f));
+	arrowSprite.setRotation((data.altitude * 18.f / 1000.f));
 }
 
 void Altimeter::draw(sf::RenderWindow& target) {
-	window.clear(sf::Color(48,48,48));
+	window.clear(sf::Color(48, 48, 48));
 	window.draw(altiSprite);
 	window.draw(arrowSprite);
 	window.display();

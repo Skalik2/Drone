@@ -1,5 +1,6 @@
-#ifndef Altimeter_OBJECTS_HPP
-#define Altimeter_OBJECTS_HPP
+#ifndef ALT_HPP
+#define ALT_HPP
+
 #include <SFML/Graphics.hpp>
 #include "data.hpp"
 
