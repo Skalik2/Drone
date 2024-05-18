@@ -20,7 +20,8 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 find_package(simpleble REQUIRED CONFIG)
 add_executable(sensor ${sensor_SOURCES}
-        src/horizon.cpp)
+        src/horizon.cpp
+        src/data.cpp)
 
 target_compile_features(sensor PRIVATE cxx_std_23)
 IF (WIN32)

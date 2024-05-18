@@ -7,9 +7,9 @@
 int main() {
     // init here
     SensorData temp;
+    bluetoothThread = std::thread(runBluetoothThread, &temp);
     horizon.textureSprite.setPosition(SCREEN_RESOLUTION.x / 2, SCREEN_RESOLUTION.y / 1.5);
-
-    sf::RenderWindow programWindow = sf::RenderWindow(sf::VideoMode(SCREEN_RESOLUTION.x ,SCREEN_RESOLUTION.y), "Okno sensorów", sf::Style::Default);
+    sf::RenderWindow programWindow = sf::RenderWindow(sf::VideoMode(SCREEN_RESOLUTION.x ,SCREEN_RESOLUTION.y), "Okno sensorów", sf::Style::Fullscreen);
     programWindow.setFramerateLimit(60);
     programWindow.setVerticalSyncEnabled(true);
 
@@ -37,7 +37,7 @@ int main() {
         }
     }
 
-
+    bluetoothThread.join();
 
 
     return 0;
