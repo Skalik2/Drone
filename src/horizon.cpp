@@ -5,8 +5,10 @@ Horizon::Horizon() {
     background.setTexture(backgroundTexture);
     planeIndicatorTexture.loadFromFile("assets/horizon_plane.png");
     planeIndicator.setTexture(planeIndicatorTexture);
-    planeIndicator.setOrigin(250, 50);
-    planeIndicator.setPosition(500, 500);
+    scaleTexture.loadFromFile("assets/horizon_scale.png");
+    scale.setTexture(scaleTexture);
+    scale.setOrigin(500, 500);
+    scale.setPosition(500, 500);
     window.create(1000, 1000);
     window.clear(sf::Color(48, 48, 48));
     blueShape.setFillColor(sf::Color(127, 138, 217));
@@ -21,6 +23,7 @@ Horizon::Horizon() {
     window.draw(brownShape);
     window.draw(background);
     window.draw(planeIndicator);
+    window.draw(scale);
     window.clear();
 }
 
@@ -29,16 +32,19 @@ void Horizon::update(const SensorData& data) {
     blueShape.setPosition(500, 500 + data.rotation.y);
     brownShape.setRotation(data.rotation.x);
     brownShape.setPosition(500, 500 + data.rotation.y);
+    scale.setRotation(data.rotation.x);
 }
 
 void Horizon::draw(sf::RenderWindow& target) {
-    window.clear(sf::Color(48, 48, 48));
+    window.clear(sf::Color(255, 255, 255));
     window.draw(blueShape);
     window.draw(brownShape);
+    window.draw(scale);
     window.draw(background);
     window.draw(planeIndicator);
+
     window.display();
     textureSprite.setTexture(window.getTexture());
-    textureSprite.setScale(0.5, 0.5);
+    textureSprite.setScale(0.75, 0.75);
     target.draw(textureSprite);
 }

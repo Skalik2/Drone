@@ -18,7 +18,7 @@ int main() {
         horizon.update(temp);
         horizon.draw(programWindow);
 
-        temp.rotation.y += 2;
+        //temp.rotation.y -= 2;
         temp.rotation.x += 0.3;
 
 
