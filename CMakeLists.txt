@@ -25,10 +25,10 @@ add_executable(sensor ${sensor_SOURCES}
 
 target_compile_features(sensor PRIVATE cxx_std_23)
 IF (WIN32)
-    target_link_libraries(sensor PRIVATE sfml-graphics sfml-window sfml-system sfml-audio sfml-network simpleble::simpleble)
+    target_link_libraries(sensor PRIVATE sfml-graphics sfml-window sfml-system sfml-audio sfml-network) #simpleble::simpleble)
 
 ELSE()
-    target_link_libraries(sensor PRIVATE sfml-graphics sfml-window sfml-system sfml-audio sfml-network Xrandr simpleble::simpleble)
+    target_link_libraries(sensor PRIVATE sfml-graphics sfml-window sfml-system sfml-audio sfml-network Xrandr)# simpleble::simpleble)
 
 ENDIF()
 target_include_directories(sensor PRIVATE ${sensor_INCLUDE_DIRS})
