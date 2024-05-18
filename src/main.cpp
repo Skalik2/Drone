@@ -7,10 +7,12 @@
 int main() {
     // init here
     SensorData temp;
+    horizon.textureSprite.setPosition(SCREEN_RESOLUTION.x / 2, SCREEN_RESOLUTION.y / 1.5);
 
-    sf::RenderWindow programWindow = sf::RenderWindow(sf::VideoMode(SCREEN_RESOLUTION.x ,SCREEN_RESOLUTION.y), "Okno sensorów", sf::Style::Fullscreen);
+    sf::RenderWindow programWindow = sf::RenderWindow(sf::VideoMode(SCREEN_RESOLUTION.x ,SCREEN_RESOLUTION.y), "Okno sensorów", sf::Style::Default);
     programWindow.setFramerateLimit(60);
     programWindow.setVerticalSyncEnabled(true);
+
     while (programWindow.isOpen()) {
 
         programWindow.clear(sf::Color(48, 48, 48));
@@ -18,8 +20,9 @@ int main() {
         horizon.update(temp);
         horizon.draw(programWindow);
 
-        //temp.rotation.y -= 2;
-        temp.rotation.x += 0.3;
+        temp.rotation.y -= 0.02;
+        //temp.rotation.y = 10;
+        temp.rotation.x += 0.05;
 
 
 

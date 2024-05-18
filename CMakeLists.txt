@@ -18,12 +18,18 @@ FetchContent_Declare(SFML
         GIT_REPOSITORY https://github.com/SFML/SFML.git
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
-
+find_package(simpleble REQUIRED CONFIG)
 add_executable(sensor ${sensor_SOURCES}
         src/horizon.cpp)
 
 target_compile_features(sensor PRIVATE cxx_std_23)
-target_link_libraries(sensor PRIVATE sfml-graphics sfml-window sfml-system sfml-audio sfml-network Xrandr)
+IF (WIN32)
+    target_link_libraries(sensor PRIVATE sfml-graphics sfml-window sfml-system sfml-audio sfml-network simpleble::simpleble)
+
+ELSE()
+    target_link_libraries(sensor PRIVATE sfml-graphics sfml-window sfml-system sfml-audio sfml-network Xrandr simpleble::simpleble)
+
+ENDIF()
 target_include_directories(sensor PRIVATE ${sensor_INCLUDE_DIRS})
 
 install(TARGETS sensor)

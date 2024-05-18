@@ -6,8 +6,8 @@
 
 struct Horizon {
     sf::RenderTexture window;
-    sf::Sprite background, scale, planeIndicator, textureSprite;
-    sf::Texture backgroundTexture, scaleTexture, planeIndicatorTexture;
+    sf::Sprite background, scale, planeIndicator, textureSprite, angle;
+    sf::Texture backgroundTexture, scaleTexture, planeIndicatorTexture, angleTexture;
     sf::RectangleShape blueShape, brownShape;
 
     Horizon();
