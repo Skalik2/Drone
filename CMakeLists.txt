@@ -19,7 +19,8 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(sensor ${sensor_SOURCES})
+add_executable(sensor ${sensor_SOURCES}
+        src/horizon.cpp)
 
 target_compile_features(sensor PRIVATE cxx_std_23)
 target_link_libraries(sensor PRIVATE sfml-graphics sfml-window sfml-system sfml-audio sfml-network Xrandr)
