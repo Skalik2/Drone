@@ -21,7 +21,11 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 add_executable(sensor ${sensor_SOURCES}
         src/horizon.cpp
-        src/data.cpp)
+        src/data.cpp
+        src/speed.hpp
+        src/speed.cpp
+        src/vertical.hpp
+        src/vertical.cpp)
 
 target_compile_features(sensor PRIVATE cxx_std_17)
 IF (WIN32)
